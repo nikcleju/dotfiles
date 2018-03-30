@@ -1,0 +1,154 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+" 
+"===========================================================
+" Nic: Plugins from Vim and Python - a Match Made in Heaven
+" ==========================================================
+" Plugins for rectify vim making more folds than required
+Plugin 'tmhedberg/SimpylFold'
+" Enable this to see docstrings for folded code
+"let g:SimpylFold_docstring_preview=1
+
+" Auto-indentation fix
+Plugin 'vim-scripts/indentpython.vim'
+
+" Auto-complete
+Bundle 'Valloric/YouCompleteMe'
+" Close window after completion
+let g:ycm_autoclose_preview_window_after_completion=1
+" Shortcut to go to definition: space-g
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Syntax checking / highlighting
+" Check syntax on each save
+Plugin 'vim-syntastic/syntastic'
+" Also PEP8 checking
+Plugin 'nvie/vim-flake8'
+" 'Make your code look pretty'
+let python_highlight_all=1
+syntax on
+
+" Colorschemes
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
+" Switch netween dark and light theme in Solarized
+call togglebg#map("<F5>")
+
+" File tree
+Plugin 'scrooloose/nerdtree'
+" Use tabs
+Plugin 'jistr/vim-nerdtree-tabs'
+" Ignore pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Powerline
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" ==========================================================
+" End of Plugins rom Vim and Python - ...
+" ==========================================================
+"
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"===================================================
+" Nic: from Vim and Python - A Match Made in Heaven
+"===================================================
+"
+" Specify areas of the screen where splits should occur
+"   (split with :sp filename (vertically ) 
+"   or :vs filename (horizontally)
+set splitbelow
+set splitright
+
+" Navigate between splits with Ctrl-h, j, k, l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable code folding (with za)
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Proper PEP8 indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" Indentation for other file types
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" Flag unnecessary white space
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" UTF-8 support
+set encoding=utf-8
+
+" python with virtualenv support
+" Necessary to make YouCompleteMe work with virtualenvs
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Line numbering
+set nu
