@@ -57,12 +57,12 @@ syntax on
 " Colorschemes
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
-if has('gui_running')
+"if has('gui_running')
   set background=dark
   colorscheme solarized
-else
-  colorscheme zenburn
-endif
+"else
+"  colorscheme zenburn
+"endif
 " Switch netween dark and light theme in Solarized
 call togglebg#map("<F5>")
 
@@ -83,7 +83,8 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Nic: Markdown & Pandoc integration
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-
+" Nic: Disable concealing
+let g:pandoc#syntax#conceal#use=0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
