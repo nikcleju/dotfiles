@@ -29,7 +29,8 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Shift-b spawn sudo persist-config --shutdown --command reboot
 
 # Open apps
-hc keybind $Mod-Return spawn lxterminal
+#hc keybind $Mod-Return spawn lxterminal
+hc keybind $Mod-Return spawn urxvt
 hc keybind $Mod-d spawn dmenu_run 
 
 # screenshots

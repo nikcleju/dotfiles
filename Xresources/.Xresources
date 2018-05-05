@@ -5,8 +5,8 @@
 # include ".config/xresources.d/xcolours/antix.conf"
 
 ! urxvt colours 
-! # include ".config/xresources.d/xcolours/antix.conf"
 # include ".config/xresources.d/xcolours/solarized/Xresources.dark"
+! # include ".config/xresources.d/xcolours/solarized/Xresources.light"
  
 !!!Added by set-dpi
 Xft.dpi: 96
