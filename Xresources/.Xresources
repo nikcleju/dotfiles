@@ -1,0 +1,12 @@
+! xcalc settings
+# include ".config/xresources.d/xcalc/xcalc.conf"
+
+! urxvt general settings 
+# include ".config/xresources.d/xcolours/antix.conf"
+
+! urxvt colours 
+! # include ".config/xresources.d/xcolours/antix.conf"
+# include ".config/xresources.d/xcolours/solarized/Xresources.dark"
+ 
+!!!Added by set-dpi
+Xft.dpi: 96
