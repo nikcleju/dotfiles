@@ -1,0 +1,7 @@
+# My global aliases 
+# Should work on (almost) all computers
+
+# clone an independent terminal with same current folder
+alias clone="urxvt & disown"
+
+alias jnbnclejupc="ssh -L 8888:nclejupc:8888 ncleju@nclejupc"
