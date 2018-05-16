@@ -5,3 +5,5 @@
 alias clone="urxvt & disown"
 
 alias jnbnclejupc="ssh -L 8888:nclejupc:8888 ncleju@nclejupc"
+
+alias jnbpascal="ssh -L 8888:localhost:8888 ncleju@pascal"
