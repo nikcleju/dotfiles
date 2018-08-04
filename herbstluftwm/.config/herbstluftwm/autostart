@@ -41,8 +41,8 @@ hc keybind $Mod-Shift-Up spawn amixer sset Master 3.00dB+
 hc keybind $Mod-Shift-Down spawn amixer sset Master 3.00dB-
 
 # tags
-TAG_NAMES=( {1..6} )
-TAG_KEYS=( {1..6} 0 )
+TAG_NAMES=( {1..9} )
+TAG_KEYS=( {1..9} 0 )
 
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
@@ -159,10 +159,10 @@ hc set frame_bg_transparent 1
 #hc spawn urxvt
 #hc unlock
 
-hc load 6 "(split vertical:0.7:1 (clients vertical:1) (split horizontal:0.7:1 (clients vertical:1) (clients vertical:1)))"
-hc rule instance='start_man_hlwm' tag=6 index=0
-hc rule instance='start_htop' tag=6 index=10
-hc rule instance='start_watch_sensors' tag=6 index=11
+hc load 9 "(split vertical:0.7:1 (clients vertical:1) (split horizontal:0.7:1 (clients vertical:1) (clients vertical:1)))"
+hc rule instance='start_man_hlwm' tag=9 index=0
+hc rule instance='start_htop' tag=9 index=10
+hc rule instance='start_watch_sensors' tag=9 index=11
 hc spawn urxvt -name start_man_hlwm -e man herbstluftwm 
 hc spawn urxvt -name start_htop -e htop
 hc spawn urxvt -name start_watch_sensors -e watch sensors
