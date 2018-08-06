@@ -7,7 +7,10 @@
 ! urxvt colours 
 ! # include ".config/xresources.d/xcolours/solarized/Xresources.dark"
 ! # include ".config/xresources.d/xcolours/solarized/Xresources.light"
-! Now managed by plugin colot-themes
+! Now managed by plugin color-themes, load theme here at startup
+! # include ".urxvt-theme"
+# include ".config/xresources.d/xcolours/current_theme"
+
  
 !!!Added by set-dpi
 Xft.dpi: 96
