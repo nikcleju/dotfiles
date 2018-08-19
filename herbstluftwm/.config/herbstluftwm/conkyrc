@@ -1,7 +1,7 @@
 # Florian Bruhin <me@the-compiler.org>
 
 use_xft yes
-xftfont profont:size=12
+xftfont profont:size=11
 override_utf8_locale yes
 
 update_interval 1
@@ -39,7 +39,7 @@ pad_percents 2
 
 alignment top_left
 gap_x 172
-gap_y 0
+gap_y 2  
 
 default_graph_size 8 30
 color0 d0d0d0
@@ -48,7 +48,7 @@ color1 afdf87
 TEXT
 ${color1}cpu  1${color0} ${cpugraph cpu0 8,20 afdf87 afdf87}      ${freq_g 1}   \
 ${goto 160}${color1}load${color0} ${loadavg}  \
-${goto 370}${color1}temp${color0}${hwmon 0 temp 1}/${hwmon 1 temp 1}°   \
+${goto 370}${color1}temp${color0}${hwmon 0 temp 1}°/${hwmon 0 temp 2}°   \
 ${goto 500}${color1}mem${color0}  ${memperc}% (${mem}/${memmax})   \
 ${goto 750}${color1}up${color0} ${uptime_short} \
 ${goto 900}${time %R}   ${time %a %d.%m.%Y}

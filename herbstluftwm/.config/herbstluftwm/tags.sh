@@ -22,7 +22,7 @@ herbstclient --idle 2>/dev/null | {
                 '+') cstart="^fg($viewed_fg)^bg($viewed_bg)" ;;
                 ':') cstart="^fg($used_fg)^bg($used_bg)"     ;;
                 '!') cstart="^fg($urgent_fg)^bg($urgent_bg)" ;;
-                *)   cstart=''                               ;;
+                *)   cstart="^fg(#565656)^bg()"                               ;;
             esac
             dzenstring="${cstart}^ca(1,herbstclient use ${tag:1}) ${tag:1} "
             dzenstring+="^ca()^fg()^bg()"
