@@ -17,7 +17,7 @@ pids+=($!)
 "$panelfolder/tags.sh" &
 pids+=($!)
 
-conky -c "$panelfolder/conkyrc" &
+conky -c "$panelfolder/conkyrc_$(hostname)" &
 pids+=($!)
 
 herbstclient --wait '^(quit_panel|reload).*'
