@@ -1,5 +1,5 @@
-q!TomorrowNight
-#define t_background        #1d1f21
+!TomorrowNight
+#define t_background        #0d0d0d
 #define t_current_line      #282a2e
 #define t_selection      	#373b41
 #define t_foreground      	#c5c8c6
@@ -19,7 +19,7 @@ q!TomorrowNight
 
 ! Black / Grey
 *.color0:       #000000
-*.color8:       #666666
+*.color8:       #1d1f21
 
 ! Red / Bright Red
 *.color1:       t_red

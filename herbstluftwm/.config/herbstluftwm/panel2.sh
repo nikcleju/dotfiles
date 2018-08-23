@@ -8,7 +8,7 @@ trap 'herbstclient emit_hook quit_panel' TERM
 herbstclient pad 0 24
 herbstclient emit_hook quit_panel
 
-dzen2 -p -h 1 -w 1366 -x 0 -y 23 -bg '#afdf87' &
+dzen2 -p -h 1 -w 1920 -x 0 -y 23 -bg '#afdf87' &
 pids+=($!)
 
 "$panelfolder/tray.sh" &
