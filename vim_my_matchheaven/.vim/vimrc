@@ -161,3 +161,12 @@ EOF
 
 " Line numbering
 set nu
+
+" ==========================================
+" Nic: mark *.mdw files as markdown syntax 
+" ==========================================
+au BufNewFile,BufRead *.mdw set filetype=markdown
+
+" Nic: set spell highlight to underline, not block
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red

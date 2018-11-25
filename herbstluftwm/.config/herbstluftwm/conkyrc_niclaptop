@@ -20,7 +20,7 @@ background no
 
 # Eliminate flickering
 double_buffer yes 
-minimum_size 1100 8
+minimum_size 1100 22
 maximum_width 1100
 
 # Use KiB/MiB/... instead of just bytes
@@ -39,7 +39,7 @@ pad_percents 2
 
 alignment top_left
 gap_x 172
-gap_y 2  
+gap_y 0  
 
 default_graph_size 8 30
 color0 d0d0d0

@@ -102,23 +102,32 @@ hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 
+# Nic: swap script
+hc keybind $Mod-Insert spawn $HERB/swap auto
+hc keybind $Mod-End spawn $HERB/swap stack_spawn urxvt
+hc keybind $Mod-Home spawn $HERB/swap master_spawn dmenu_run
+hc keybind $Mod-Delete spawn $HERB/swap close
+
+
 # colors
-hc set frame_border_active_color '#222222'
+#hc set frame_border_active_color '#222222'
+hc set frame_border_active_color '#55ff00'
 hc set frame_border_normal_color '#101010'
 hc set frame_bg_normal_color '#565656'
 hc set frame_bg_active_color '#444444'
-hc set frame_border_width 0
-hc set window_border_width 0
+hc set frame_border_width 1
+hc set window_border_width 1
 hc set window_border_inner_width 0
 hc set window_border_normal_color '#454545'
-hc set window_border_active_color '#8c8c8c'
+#hc set window_border_active_color '#8c8c8c'
+hc set window_border_active_color '#cccc8c'
 hc set always_show_frame 0
 hc set frame_gap 0
 # add overlapping window borders
 hc set window_gap -0
 hc set frame_padding 0
-hc set smart_window_surroundings 0
-hc set smart_frame_surroundings 0
+hc set smart_window_surroundings 1
+hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 
 # rules
