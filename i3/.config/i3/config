@@ -30,7 +30,9 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
+# Nic
+bindsym $mod+Return exec gnome-terminal --working-directory="`xcwd`"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -57,7 +59,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+l move up  # Nic: overwrite below
 bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
@@ -163,8 +165,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Nic. Works by toggling, no need to move left
+bindsym $mod+p move workspace to output right
+
+# Nic
+bindsym $mod+n exec nemo --no-desktop
+
+# Nic: i3-keyboard-layout: https://github.com/porras/i3-keyboard-layout
+bindsym $mod+Shift+l exec i3-keyboard-layout cycle us "ro std"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        # status_command i3status # Nic: i3-keyboard-layout: https://github.com/porras/i3-keyboard-layout
+        status_command i3status | i3-keyboard-layout i3status
 }
+
