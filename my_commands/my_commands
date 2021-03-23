@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+case x"$@" in
+
+  x"Both monitors on")
+    xrandr --output DP1 --auto --output DP2 --auto --right-of DP1
+    exit 0
+    ;;
+
+  x"Only monitor right")
+    xrandr --output DP1 --off --output DP2 --auto
+    exit 0
+    ;;
+    
+  *)
+    # Echo here the available options
+    echo "Both monitors on"
+    echo "Only monitor right"
+    ;;
+    
+esac
+
