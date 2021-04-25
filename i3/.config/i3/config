@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 6
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -57,7 +57,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+l move up   # Nic: disable, reuse below
 bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
@@ -129,6 +129,22 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# Nic: F keys on HP laptop
+# Brightness only with $mod
+#bindsym $mod+F3 exec xbacklight -10
+#bindsym $mod+F4 exec xbacklight +10
+bindsym $mod+F3 exec brightnessctl set 10%-
+bindsym $mod+F4 exec brightnessctl set +10%
+# Audio with Fn key
+bindsym XF86AudioMute exec amixer sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+# Audio also with $mod
+bindsym $mod+F5 exec amixer sset 'Master' toggle
+bindsym $mod+F6 exec amixer sset 'Master' 5%-
+bindsym $mod+F7 exec amixer sset 'Master' 5%+
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -147,7 +163,9 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        # Nic:
+        # bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindcode 47 resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -163,8 +181,34 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Nic: start nemo
+bindsym $mod+n exec nemo --no-desktop
+
+# Nic: cycle language
+
+bindsym $mod+shift+l exec i3-keyboard-layout cycle us ro
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+		# Nic: show keyboard layout
+        #status_command i3status
+        status_command i3status | i3-keyboard-layout i3status
+        
+        font pango:monospace 6
 }
+
+
+# Nic: set background
+#exec --no-startup-id xsetroot -solid "#073642"
+exec --no-startup-id xsetroot -solid "#001623"
+
+
+#exec xrandr --dpi 192
+#exec xrandr --dpi 192 
+
+# Nic: change dpi, from https://blog.yossarian.net/2020/12/24/A-few-HiDPI-tricks-for-Linux
+exec --no-startup-id xrdb ~/.Xresources_i3
+#exec sh source .reset_QT_SCALE_FACTOR
+
+
