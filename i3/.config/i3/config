@@ -198,7 +198,7 @@ bindsym $mod+shift+l exec i3-keyboard-layout cycle us "ro std"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-		# Nic: show keyboard layout
+	# Nic: show keyboard layout
         #status_command i3status
         status_command i3status | i3-keyboard-layout i3status
         
@@ -215,7 +215,8 @@ exec --no-startup-id xsetroot -solid "#001623"
 # Nic: increase border wo better view highlight
 new_window pixel 4
 new_float pixel 4
-#client.focused          #002b36 $blue #fdf6e3 #268bd2
+#client.focused          
+#002b36 $blue #fdf6e3 #268bd2
 
 # Nic: use i3-resurrect
 set $i3_resurrect i3-resurrect
