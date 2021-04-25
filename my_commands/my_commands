@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+case x"$@" in
+
+  x"Both monitors on")
+    xrandr --output DP1 --auto --output DP2 --auto --right-of DP1
+    exit 0
+    ;;
+
+  x"Only monitor right")
+    xrandr --output DP1 --off --output DP2 --auto
+    exit 0
+    ;;
+
+  x"i3-resurrect save all workspaces")
+    i3-resurrect save -w 1
+    i3-resurrect save -w 2
+    i3-resurrect save -w 3
+    i3-resurrect save -w 4
+    i3-resurrect save -w 5
+    i3-resurrect save -w 6
+    i3-resurrect save -w 7
+    i3-resurrect save -w 8
+    i3-resurrect save -w 9
+    i3-resurrect save -w 10
+    exit 0
+    ;;
+
+  x"i3-resurrect restore all workspaces")
+    i3-resurrect restore -w 1
+    i3-resurrect restore -w 2
+    i3-resurrect restore -w 3
+    i3-resurrect restore -w 4
+    i3-resurrect restore -w 5
+    i3-resurrect restore -w 6
+    i3-resurrect restore -w 7
+    i3-resurrect restore -w 8
+    i3-resurrect restore -w 9
+    i3-resurrect restore -w 10
+    exit 0
+    ;;
+
+  *)
+    # Echo here the available options
+    echo "Both monitors on"
+    echo "Only monitor right"
+    echo "i3-resurrect save all workspaces"
+    echo "i3-resurrect restore all workspaces"
+    ;;
+    
+esac
+
