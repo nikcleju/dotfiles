@@ -2,13 +2,18 @@
 
 case x"$@" in
 
-  x"Both monitors on")
-    xrandr --output DP1 --auto --output DP2 --auto --right-of DP1
+
+  x"(laptophp): Only laptop screen monitor")
+    xrandr --output eDP-1 --auto 
+    xrandr --output HDMI-1 --off
+	xrdb ~/.Xresources
     exit 0
     ;;
 
-  x"Only monitor right")
-    xrandr --output DP1 --off --output DP2 --auto
+  x"(laptophp): Only external monitor")
+    xrandr --output eDP-1 --off
+    xrandr --output HDMI-1 --auto
+	xrdb ~/.Xresources_extmonitor
     exit 0
     ;;
 
@@ -42,8 +47,8 @@ case x"$@" in
 
   *)
     # Echo here the available options
-    echo "Both monitors on"
-    echo "Only monitor right"
+    echo "(laptophp): Only laptop screen monitor"
+    echo "(laptophp): Only external monitor"
     echo "i3-resurrect save all workspaces"
     echo "i3-resurrect restore all workspaces"
     ;;
