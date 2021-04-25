@@ -17,6 +17,20 @@ case x"$@" in
     exit 0
     ;;
 
+  x"Start VPN Facultate")
+    #cmd="openvpn3 session-start --config laptop_nikcleju@gmail_com@nikcleju_\[Frankfurt\].ovpn"
+    #$cmd &
+    coproc openvpn3 session-start --config laptop_nikcleju@gmail_com@nikcleju_\[Frankfurt\].ovpn > /dev/null
+	exit 0
+    ;;
+    
+  x"Stop VPN Facultate")
+	#cmd="openvpn3 session-manage --disconnect --config laptop_nikcleju@gmail_com@nikcleju_\[Frankfurt\].ovpn"
+	#$cmd &
+	coproc openvpn3 session-manage --disconnect --config laptop_nikcleju@gmail_com@nikcleju_\[Frankfurt\].ovpn > /dev/null
+	exit 0
+    ;;
+    
   x"i3-resurrect save all workspaces")
     i3-resurrect save -w 1
     i3-resurrect save -w 2
@@ -45,12 +59,16 @@ case x"$@" in
     exit 0
     ;;
 
+    
   *)
     # Echo here the available options
     echo "(laptophp): Only laptop screen monitor"
     echo "(laptophp): Only external monitor"
+    echo "Start VPN Facultate"
+    echo "Stop VPN Facultate"
     echo "i3-resurrect save all workspaces"
     echo "i3-resurrect restore all workspaces"
+
     ;;
     
 esac
