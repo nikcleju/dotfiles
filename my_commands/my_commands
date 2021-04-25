@@ -6,7 +6,7 @@ case x"$@" in
   x"(laptophp): Only laptop screen monitor")
     xrandr --output eDP-1 --auto 
     xrandr --output HDMI-1 --off
-	xrdb ~/.Xresources
+	xrdb ~/.Xresources_i3
     exit 0
     ;;
 
